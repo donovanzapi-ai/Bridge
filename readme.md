@@ -251,10 +251,19 @@ Extensibilidad independiente: Podemos agregar nuevos dispositivos O nuevos contr
 ### 🤔 Preguntas de Análisis
 
 * Explosión de Clases: ¿Cuántas clases necesitaríamos si tuviéramos 3 tipos de controles y 4 tipos de dispositivos sin el patrón Bridge? ¿Y con el patrón Bridge?
+- Sin agregar el patron tendriamos que hacer más clases, si hicieramos un dispositivo serían 3 más y si sumara solo 1 control más sumaria 4.
+Si fuera el otro caso, con el patrón, se tendria que separa las clases en las jerarquias que s aplicaron en el ejercicio, si agregara un dispositivo solo seria una nueva clase.
 * Acoplamiento: ¿Qué pasaría si la clase ControlRemotoBasico heredara directamente de Radio o TV en lugar de usar composición?
+Si asi fuera el control quedaria exclusivo para cada dispositivo y no podria reutilizarse facilmente en codigo, por ello la herencia seria algo complejo de utilizar o presentar, no podria cambiar de objeto.
 * Extensibilidad: Si quiero agregar un nuevo dispositivo (ej: Projector), ¿qué cambios necesito hacer? ¿Necesito modificar las clases de controles existentes?
+Tendria primero que crear el dispositivo y con sus respectivos metodos, que puedan funcionar con el, y no tendrian tema con las otros controles porque no afectan su funcionamiento.
 * Principios SOLID: ¿Qué principios SOLID se aplican en este patrón? (Especialmente Principio de Inversión de Dependencias y * Principio Abierto/Cerrado)
+El principio de Inversion de Dependencias ya que tanto los controles de alto nivel como los dispositivos concretos dependen de las abstracciones, no de implementaciones entre si.
+El Principio Abierto/ Cerrado el sistema esta abierto a la extension, se puedne añadir más, y cerrado a la modifcacion, no se tiene que reescribir de nuevo las clases.
+El principio de Responsabilidad Unica ya que separa la logica de control/ interfaz de usuario de la logica especifica. 
 * Flexibilidad: ¿Cómo nos beneficiamos al poder cambiar el dispositivo de un control en tiempo de ejecución?
+Reutilizar el mismo objeto control ayuda a manejar distintsos dispositivos.
+Adaptarse a cambios de estado de manera limpia sin tener desacoplamiento y sin cadenoas de condicionales largas.
 ### 🧪 Ejercicios de Extensión
 
 * Agrega un nuevo dispositivo: Implementa la clase Projector y prueba con los controles existentes.
